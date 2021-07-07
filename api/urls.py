@@ -13,7 +13,8 @@ def ApiOverview(request):
 	api_urls = {
 		'Api Overview':'',
 		'Get All Posts':'getposts/',
-		'Get Specific Post by Post ID':'getpost/postid/'
+		'Get Specific Post by Post ID':'getpost/postid/',
+		'Make a New Post':'newpost/'
 	}
 	return Response(api_urls)
 
@@ -21,6 +22,8 @@ urlpatterns = [
 	path('', ApiOverview),
 
 	path('getposts', GetPosts),
-	path('getpost/<str:postid>/', GetPost)
+	path('getpost/<str:postid>/', GetPost),
+
+	path('newpost/', NewPost)
 
 ]

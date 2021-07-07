@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from database.models import Post, StarredPost
+from database.models import Post, StarredPost, User
 
 class GetPostSerializer(serializers.ModelSerializer):
 	class Meta(object):
@@ -14,4 +14,13 @@ class GetStarredPostSerializer(serializers.ModelSerializer):
 		model = StarredPost
 		fields = (
 				'__all__'
+			)
+
+class NewPostSerializer(serializers.ModelSerializer):
+	class Meta(object):
+		model = Post
+		fields = (
+				'ByUser',
+				'Title',
+				'Content',
 			)
